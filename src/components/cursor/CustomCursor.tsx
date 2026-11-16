@@ -18,7 +18,7 @@ export const CustomCursor: React.FC = () => {
   const cursorY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
-    // Completely disable custom cursor on touch/mobile devices to eliminate touch lag
+    // Disable custom cursor on touch/mobile devices
     if (
       typeof window === "undefined" ||
       window.matchMedia("(pointer: coarse)").matches ||
@@ -93,7 +93,7 @@ export const CustomCursor: React.FC = () => {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[9999] overflow-hidden transition-opacity duration-300">
-      {/* Outer Spring Gold Ring */}
+      {/* Outer Spring Emerald/Mint Ring */}
       <motion.div
         className="fixed top-0 left-0 flex items-center justify-center rounded-full border pointer-events-none"
         style={{
@@ -103,32 +103,32 @@ export const CustomCursor: React.FC = () => {
           translateY: "-50%",
         }}
         animate={{
-          width: isProjectCard ? 64 : isPointer ? 38 : 24,
-          height: isProjectCard ? 64 : isPointer ? 38 : 24,
+          width: isProjectCard ? 68 : isPointer ? 40 : 26,
+          height: isProjectCard ? 68 : isPointer ? 40 : 26,
           borderColor: isProjectCard
-            ? "rgba(240, 213, 165, 0.9)"
+            ? "rgba(218, 241, 222, 0.95)"
             : isPointer
-            ? "rgba(214, 180, 119, 0.85)"
-            : "rgba(214, 180, 119, 0.45)",
+            ? "rgba(142, 182, 155, 0.85)"
+            : "rgba(142, 182, 155, 0.45)",
           backgroundColor: isProjectCard
-            ? "rgba(18, 16, 12, 0.85)"
+            ? "rgba(5, 31, 32, 0.88)"
             : isPointer
-            ? "rgba(214, 180, 119, 0.12)"
-            : "rgba(214, 180, 119, 0.04)",
-          backdropFilter: isProjectCard ? "blur(4px)" : "none",
+            ? "rgba(35, 83, 71, 0.2)"
+            : "rgba(142, 182, 155, 0.05)",
+          backdropFilter: isProjectCard ? "blur(6px)" : "none",
         }}
         transition={{ type: "spring", damping: 20, stiffness: 300, mass: 0.3 }}
       >
         {isProjectCard && (
-          <span className="text-[9px] font-sans font-semibold uppercase tracking-[0.2em] text-[#F0D5A5]">
+          <span className="text-[10px] font-sans font-bold uppercase tracking-[0.25em] text-[#DAF1DE]">
             {cursorText}
           </span>
         )}
       </motion.div>
 
-      {/* Tiny Precision Center Gold Dot */}
+      {/* Tiny Precision Center Dot in Pale Mint */}
       <motion.div
-        className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full bg-[#F0D5A5] pointer-events-none shadow-[0_0_6px_#D6B477]"
+        className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full bg-[#DAF1DE] pointer-events-none shadow-[0_0_8px_#8EB69B]"
         style={{
           x: mouseX,
           y: mouseY,

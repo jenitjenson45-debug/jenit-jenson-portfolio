@@ -1,65 +1,149 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
 import { Project } from "@/data/portfolioData";
-import { Starburst } from "../common/Monogram";
-import { X, ExternalLink, Github, CheckCircle2, ArrowRight } from "lucide-react";
+import { X, ExternalLink, Github, CheckCircle, Layers, ShieldCheck } from "lucide-react";
 
 interface ProjectModalProps {
   project: Project | null;
   onClose: () => void;
 }
 
-export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+export function ProjectModal({ project, onClose }: ProjectModalProps) {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+
+    if (project) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [project, onClose]);
+
   if (!project) return null;
 
   return (
-    <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-[#080808]/90 backdrop-blur-2xl">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto glass-panel-luxury rounded-3xl p-6 sm:p-10 border border-[rgba(214,180,119,0.3)] shadow-[0_25px_70px_rgba(0,0,0,0.9)] my-auto"
-        >
-          {/* Close Button */}
-          <button
-            onClick={onClose}
-            className="absolute top-6 right-6 p-2.5 rounded-full bg-[#181714] border border-[rgba(255,255,255,0.08)] text-[#AAA59D] hover:text-white hover:border-[#D6B477] transition-all"
-            aria-label="Close modal"
-          >
-            <X className="w-5 h-5" />
-          </button>
+    <div className="fixed inset-0 z-[9990] flex items-center justify-center p-4 sm:p-6 md:p-10">
+      {/* Backdrop */}
+      <div
+        onClick={onClose}
+        className="absolute inset-0 bg-[#051F20]/90 backdrop-blur-xl transition-opacity animate-in fade-in duration-300"
+      />
 
-          {/* Modal Header */}
-          <div className="flex items-center gap-2.5 mb-3">
-            <Starburst size={14} className="text-[#D6B477]" />
-            <span className="text-xs uppercase tracking-[0.24em] text-[#F0D5A5] font-mono">
-              {project.category}
-            </span>
+      {/* Modal Dialog Card */}
+      <div className="relative z-10 w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl bg-[#0B2B26] border border-[#235347] shadow-2xl text-[#DAF1DE] p-6 sm:p-8 md:p-10 animate-in zoom-in-95 duration-300">
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute top-6 right-6 p-2 rounded-full bg-[#163832] border border-[#235347] text-[#DAF1DE] hover:bg-[#235347] transition-colors"
+          aria-label="Close project modal"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        {/* Header Metadata */}
+        <div className="flex items-center gap-3 text-xs font-mono text-[#8EB69B] uppercase tracking-widest mb-3">
+          <span className="text-[#DAF1DE]">{project.number}</span>
+          <span>/</span>
+          <span>{project.category}</span>
+        </div>
+
+        {/* Title */}
+        <h3 className="font-serif-editorial text-3xl sm:text-5xl text-[#DAF1DE] font-normal tracking-tight mb-2">
+          {project.title}
+        </h3>
+        <p className="text-sm sm:text-base font-mono text-[#8EB69B] mb-6">
+          {project.subtitle}
+        </p>
+
+        {/* Project Visual Presentation */}
+        <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden mb-8 border border-[#235347] bg-[#051F20]">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 1024px) 100vw, 900px"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B2B26] via-transparent to-transparent opacity-80" />
+          
+          <div className="absolute bottom-4 left-4 flex flex-wrap gap-2">
+            {project.technologies.slice(0, 4).map((tech) => (
+              <span
+                key={tech}
+                className="px-2.5 py-1 rounded text-xs font-mono bg-[#051F20]/80 border border-[#8EB69B]/30 backdrop-blur-md text-[#DAF1DE]"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Description */}
+        <div className="space-y-6">
+          <div>
+            <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-[#8EB69B] mb-2 flex items-center gap-2">
+              <Layers className="w-3.5 h-3.5" />
+              <span>PROJECT OVERVIEW</span>
+            </h4>
+            <p className="text-base text-[#DAF1DE]/90 leading-relaxed font-light">
+              {project.description}
+            </p>
           </div>
 
-          <h2 className="font-serif-luxury text-3xl sm:text-5xl text-[#F5F1E9] leading-tight">
-            {project.title}
-          </h2>
+          {/* Key Concepts */}
+          <div>
+            <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-[#8EB69B] mb-3 flex items-center gap-2">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>KEY ARCHITECTURE CONCEPTS</span>
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {project.keyConcepts.map((concept, idx) => (
+                <div
+                  key={idx}
+                  className="p-3 rounded-lg bg-[#163832]/60 border border-[#235347] flex items-start gap-2.5"
+                >
+                  <CheckCircle className="w-4 h-4 text-[#8EB69B] shrink-0 mt-0.5" />
+                  <span className="text-xs text-[#DAF1DE] font-light">{concept}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
-          <p className="mt-3 text-base sm:text-lg text-[#AAA59D] font-light leading-relaxed">
-            {project.description}
-          </p>
+          {/* Technology Direction */}
+          <div>
+            <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-[#8EB69B] mb-2">
+              TECHNOLOGY STACK
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {project.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3 py-1.5 rounded-md text-xs font-mono bg-[#051F20] text-[#DAF1DE] border border-[#235347]"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
 
-          {/* Action Links */}
-          <div className="flex flex-wrap items-center gap-4 mt-6 pb-6 border-b border-[rgba(214,180,119,0.15)]">
+          {/* Verified Action Links */}
+          <div className="pt-6 border-t border-[#163832] flex flex-wrap items-center gap-4">
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#F0D5A5] to-[#D6B477] text-[#080808] font-medium text-xs sm:text-sm tracking-wide shadow-gold-glow hover:scale-[1.02] transition-transform"
+                className="btn-mint px-6 py-3 rounded text-xs uppercase tracking-widest inline-flex items-center gap-2"
               >
-                <span>Live Website</span>
+                <span>OPEN LIVE PROJECT</span>
                 <ExternalLink className="w-4 h-4" />
               </a>
             )}
@@ -69,73 +153,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#181714] border border-[rgba(214,180,119,0.3)] text-[#F5F1E9] hover:border-[#D6B477] hover:text-[#F0D5A5] text-xs sm:text-sm tracking-wide transition-colors"
+                className="btn-outline-sage px-6 py-3 rounded text-xs uppercase tracking-widest inline-flex items-center gap-2"
               >
                 <Github className="w-4 h-4" />
-                <span>Source Repository</span>
+                <span>VIEW REPOSITORY</span>
               </a>
             )}
           </div>
-
-          {/* Project Details Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-            {/* Problem Statement */}
-            <div className="p-6 rounded-2xl bg-[#12110F]/80 border border-[rgba(255,255,255,0.06)]">
-              <h3 className="text-xs uppercase tracking-[0.2em] text-[#F0D5A5] font-mono mb-2">
-                Problem Statement
-              </h3>
-              <p className="text-xs sm:text-sm text-[#AAA59D] leading-relaxed">
-                {project.problemStatement}
-              </p>
-            </div>
-
-            {/* Proposed Solution */}
-            <div className="p-6 rounded-2xl bg-[#12110F]/80 border border-[rgba(255,255,255,0.06)]">
-              <h3 className="text-xs uppercase tracking-[0.2em] text-[#F0D5A5] font-mono mb-2">
-                Proposed Solution
-              </h3>
-              <p className="text-xs sm:text-sm text-[#AAA59D] leading-relaxed">
-                {project.proposedSolution}
-              </p>
-            </div>
-          </div>
-
-          {/* Main Key Features */}
-          <div className="mt-8">
-            <h3 className="text-xs uppercase tracking-[0.2em] text-[#F0D5A5] font-mono mb-4">
-              Main Key Features
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              {project.features.map((feature, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-start gap-3 p-3.5 rounded-xl bg-[#141311] border border-[rgba(214,180,119,0.12)] text-xs sm:text-sm text-[#F5F1E9]"
-                >
-                  <CheckCircle2 className="w-4 h-4 text-[#D6B477] flex-shrink-0 mt-0.5" />
-                  <span>{feature}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Technologies Used */}
-          <div className="mt-8 pt-6 border-t border-[rgba(214,180,119,0.15)]">
-            <h3 className="text-xs uppercase tracking-[0.2em] text-[#AAA59D] font-mono mb-3">
-              Technologies &amp; Architecture
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-3.5 py-1.5 rounded-full text-xs bg-[#181714] border border-[rgba(214,180,119,0.2)] text-[#F0D5A5] font-mono"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+        </div>
       </div>
-    </AnimatePresence>
+    </div>
   );
-};
+}

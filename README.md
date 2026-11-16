@@ -1,65 +1,104 @@
-# 👑 ZAFFRAN — The Grand Pavilion
-### Luxury Multi-Cuisine Dining Destination & Online Gastronomy Platform
-**Mundur, Thrissur, Kerala — 680541**
+# ✦ JENIT JENSON — UI Designer Portfolio
+### High-Contrast Editorial Luxury, Soft Neomorphism & Tactile Skeuomorphism
+**Kerala, India**
 
-[![Vercel Deployment](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://zaffran-grand-pavilion.vercel.app)
-[![GitHub Repository](https://img.shields.io/badge/GitHub-jenitjenson45--debug%2Fzaffran-181717?style=for-the-badge&logo=github)](https://github.com/jenitjenson45-debug/zaffran)
-[![Next.js](https://img.shields.io/badge/Next.js-14.2-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+🌐 **Live Vercel Production Site**: [https://jenit-jenson-portfolio-beryl.vercel.app](https://jenit-jenson-portfolio-beryl.vercel.app)
+
+A production-grade, single-file luxury portfolio website designed for **Jenit Jenson (UI Designer)**. Self-contained inside [`index.html`](file:///d:/PORTFOLIO/index.html), combining editorial typography, 3D Three.js scene physics, and curated UI design showcases spanning **Skeuomorphism**, **Neomorphism**, and **Glassmorphism**.
 
 ---
 
-## 🌐 Live Production Deployments
+## 🎨 Design Philosophy & Color System
 
-- 👑 **Flagship Production**: [https://zaffran-grand-pavilion.vercel.app](https://zaffran-grand-pavilion.vercel.app)
-- ⚡ **Short Domain**: [https://zaffran-pavilion.vercel.app](https://zaffran-pavilion.vercel.app)
-- 📍 **Regional Domain**: [https://zaffran-mundur.vercel.app](https://zaffran-mundur.vercel.app)
+Strict 6-color palette (no purple, blue, pink, or neon):
+- `--c1` **#051F20** (Deepest Navy Green — Primary Background)
+- `--c2` **#0B2B26** (Dark Forest Green)
+- `--c3` **#163832`** (Secondary Surfaces & Hairlines)
+- `--c4` **#235347** (Emerald Accents)
+- `--c5` **#8EB69B** (Sage — Labels & Ambient Glow)
+- `--c6` **#DAF1DE** (Pale Mint — Primary Text & Action Buttons)
 
----
-
-## 🌟 Overview
-
-**ZAFFRAN — The Grand Pavilion** is a flagship culinary landmark and digital dining experience situated in Mundur, Thrissur. The platform seamlessly marries royal Arabic heritage, traditional Malabar feasts, and modern gastronomy with an immersive, high-performance web experience.
-
-Designed and architected by **Jenit Jenson (UI/UX Architect)**, the application implements tactile skeuomorphic interfaces, continuous 3D culinary particle simulations, smooth 3D scroll zoom portals, and 60/120 FPS performance optimizations for all mobile and desktop devices.
-
----
-
-## ✨ Architectural & Design Highlights
-
-1. **Continuous 3D Culinary Particle Motion Engine**:
-   - Dynamic canvas simulation with saffron filaments, effervescent juice droplets, fresh botanical mint leaves, and glowing charcoal tandoor embers.
-   - Adaptive DPR clamping (1.5x) and automatic tab sleep to guarantee 0% background battery drain.
-   - Dynamic optical scroll blur transitioning into an ambient culinary backdrop.
-
-2. **Liquid 3D Scroll Portal & Hero Pavilion Showcase**:
-   - Seamless zoom transition passing through the royal crest into the palatial dining pavilion.
-   - Live Mundur Thrissur concierge details with underground earthen kiln status indicators.
-
-3. **Cross-Device Zero-Lag Fluidity**:
-   - **Phones & Tablets**: Pure native 120Hz hardware momentum scrolling (Lenis virtual touch interception bypassed).
-   - **Laptops**: Smooth inertia scrolling for trackpads and mouse wheels.
-   - **Zero React Re-render 3D Transforms**: Hardware-accelerated direct DOM mutations during scroll.
-
-4. **Royal Brand Identity & Address Bar Icon**:
-   - Bespoke vector favicon with 24K gold Imperial Coronet, sculpted serif "Z" monogram, crossed culinary scepters, and obsidian tile.
+Typography:
+- **Bodoni Moda**: High-contrast Didone serif for name, titles, quotes, and project headings.
+- **DM Sans**: Clean sans-serif for body copy, buttons, and navigation.
+- **JetBrains Mono**: Technical monospace for tags, coordinates, and micro-copy.
 
 ---
 
-## 🛠️ Tech Stack
+## 🌟 Key Architectural & UI Features
 
-- **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS, Framer Motion, Luxury Glassmorphism & Skeuomorphism
-- **Graphics**: HTML5 Canvas 2D / 3D Perspective Simulation
-- **Hosting & CI/CD**: Vercel Global Edge Network with GitHub Automated Deployments
+### 1. 3D Background & Particle Cosmos (Three.js r128)
+- Real-time 3D physical Torus Knot geometry with MeshPhysicalMaterial clearcoat lacquer and transmission.
+- Full-site scroll synchronisation via Lenis smooth scroll and GSAP ScrollTrigger.
+- Dual particle fields: 800 ambient stardust motes + 360-particle orbiting vortex ribbon reacting to mouse hover and scroll velocity.
+
+### 2. Chapter 1: Home (Cinematic Hero)
+- Oversized high-contrast typography ("JENIT JENSON") positioned above the portrait.
+- Transparent cutout of Jenit Jenson with natural orange shirt, glasses, and beard intact.
+- Dual portrait composition: monochromatic background cutout with ambient emerald back-glow + full-color foreground cutout.
+
+### 3. Chapter 2: About (Liquid Glass Container)
+- Curated upper-body portrait crop overlapping a 3D translucent liquid glass container.
+- High-contrast editorial copy, education card, and luxury philosophy quote.
+
+### 4. Chapter 3: Selected Works (Defined Boundaries Showcase)
+Each project image preview is framed within a distinct, defined UI design language:
+- **Project 01 (Royal Foods)**: *Skeuomorphic Luxury Hardware Frame* — Heavy metallic beveled chassis, 4 corner Phillips screws with cross-slots, debossed inner well, and acrylic glare sweep.
+- **Project 02 (Zaffran)**: *Neumorphic Soft-3D Frame* — Smooth continuous curved boundary (34px radius), dual ambient light/dark shadows, and concave inner well.
+- **Project 03 (Aegis Platform)**: *Glassmorphic Smoked Frosted Glass Frame* — Refractive 1.5px glass border, 24px backdrop blur, smoky tint, and animated specular light streak.
+- **Project 04 (ResQLink)**: *Tactical Skeuomorphic HUD Frame* — Industrial casing with corner bracket plates, blinking telemetry LED, and recessed radar display well.
+
+### 5. Chapter 4: Expertise (Middle-Aligned Neumorphic Grid)
+- Soft raised neumorphic cards with centered, middle-aligned tool text and soft inset hover transitions.
+- Interactive category filtering (All, Design & Prototyping, Frontend & 3D, Production & Systems).
+
+### 6. Chapter 5: Direct Connect Dual Showcase (Instagram & WhatsApp)
+- **Single Horizontal Line Alignment**: Both cards sit side-by-side with matched heights on desktop.
+- **Instagram VIP Access Pass**: Skeuomorphic plate with 4 metallic screws, punched lanyard slot, hardware optical status LED, debossed QR chamber, acrylic glare, and tactile mechanical button.
+- **WhatsApp Direct Line Pass**: Twin Skeuomorphic credential featuring scannable QR code, stamped phone plate (`+91 90721 05574`), and mechanical microswitch button.
+- **Interactive 3D Spring Tilt**: Both cards dynamically track cursor movement with smooth 3D perspective spring physics and moving glare reflections.
 
 ---
 
-## 👨‍🎨 Creative Attribution
+## 📂 Project Structure
 
-- **UI / UX Architecture**: [Jenit Jenson](https://github.com/jenitjenson45-debug)
-- **Role**: Lead UI/UX Architect & Creative Technologist
-- **Location**: Mundur, Thrissur, Kerala — 680541
-- **Concierge**: +91 90721 04475
+```text
+PORTFOLIO/
+├── index.html              # The complete, self-contained single-file portfolio
+├── build_index.js          # Generator script to build/compile index.html
+├── serve.js                # Local HTTP preview server (http://localhost:3000/)
+├── public/
+│   └── images/
+│       ├── portrait_data.json      # Base64 data URIs for all embedded assets
+│       ├── jenit-cutout.webp       # Transparent hero portrait cutout
+│       ├── jenit-about-crop.webp   # Face/upper body crop for About
+│       ├── jenit-logo.webp         # Isolated circular brand logo
+│       ├── instagram-qr.webp       # Authentic Instagram QR card
+│       └── whatsapp-qr.svg         # Scannable WhatsApp QR
+├── verify_dual_skeuo.js    # Automated test verifying dual Skeuomorphic passes
+├── verify_neomorphic.js    # Automated test verifying global design criteria
+└── README.md               # Documentation
+```
+
+---
+
+## 🚀 Development & Preview
+
+### Local Preview Server
+To run the local preview server on port 3000:
+```bash
+node serve.js
+```
+Open [http://localhost:3000/](http://localhost:3000/) in your browser.
+
+### Rebuilding index.html
+To re-compile the single self-contained `index.html`:
+```bash
+node build_index.js
+```
+
+### Running Automated Verification
+```bash
+node verify_dual_skeuo.js
+node verify_neomorphic.js
+```

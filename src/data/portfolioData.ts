@@ -1,12 +1,11 @@
 export interface Project {
   id: string;
+  number: string;
   title: string;
   subtitle: string;
   category: string;
   description: string;
-  problemStatement: string;
-  proposedSolution: string;
-  features: string[];
+  keyConcepts: string[];
   technologies: string[];
   liveUrl?: string;
   githubUrl: string;
@@ -14,81 +13,86 @@ export interface Project {
   featured: boolean;
 }
 
-export interface SkillItem {
-  name: string;
-  icon: string;
-  category: "design" | "development";
-  level?: string;
-  description?: string;
+export interface SkillCategory {
+  categoryTitle: string;
+  categoryTag: string;
+  skills: {
+    name: string;
+    description: string;
+    level: "Intermediate" | "Core";
+  }[];
 }
 
 export const PERSONAL_INFO = {
-  name: "Jenit Jenson",
-  brandName: "JENIT JENSON",
+  name: "JENIT JENSON",
+  displayName: "Jenit Jenson",
   monogram: "JJ",
-  badge: "Graphic Designer • UI/UX Enthusiast",
-  roleTagline: "DESIGNER · DEVELOPER · CREATIVE MIND",
-  heroBio:
-    "Crafting stunning visuals, designing better experiences, and turning ideas into impactful designs.",
-  aboutHeading: "Turning Ideas into Impact.",
-  aboutBio:
-    "I'm Jenit Jenson, a Computer Science Engineering student with a passion for design, development, and creative problem solving. I love crafting visually appealing experiences that blend creativity with technology.",
-  degree: "B.Tech – Computer Science and Engineering",
-  degreeShort: "B.Tech CSE",
+  role: "FULL-STACK DEVELOPER",
+  shortRole: "Full-Stack Developer",
+  location: "KERALA, INDIA",
+  coordinates: "10.7867° N, 76.2764° E",
   college: "Jyothi Engineering College",
-  status: "Currently pursuing 3rd Year",
-  location: "Kerala, India",
+  education: "B.Tech — Computer Science Engineering",
+  currentYear: "Currently in 3rd Year",
   email: "jenitson46@gmail.com",
   github: "https://github.com/jenitjenson45-debug",
   linkedin: "https://www.linkedin.com/in/jenit-jenson-116a2b387",
-  contributions:
-    "Worked on innovative projects like ResQLink, ResQMesh and a personal portfolio, focusing on design, development and user experience.",
-  philosophy: "DESIGN. DEVELOP. INNOVATE.",
-  copyright: "© 2026 Jenit Jenson. All rights reserved.",
+  
+  tagline: "THE ART OF BUILDING DIGITAL EXPERIENCES.",
+  heroIntro: "HELLO, I'M JENIT JENSON.",
+  heroStatement:
+    "I build thoughtful digital experiences through clean engineering, creative design and modern web technologies.",
+  heroVerticalText: "DESIGNING · DEVELOPING · CREATING",
+  
+  aboutHeading: "THE PERSON BEHIND THE PIXELS.",
+  aboutParagraphs: [
+    "Hi, I'm Jenit Jenson, a B.Tech Computer Science Engineering student at Jyothi Engineering College and an aspiring Full-Stack Developer.",
+    "I enjoy transforming ideas into meaningful digital experiences, combining thoughtful UI/UX design with modern web technologies.",
+    "My interests include full-stack development, interactive interfaces, creative web experiences and building practical technology solutions.",
+  ],
+  philosophy: "GOOD DESIGN ATTRACTS. GREAT ENGINEERING MAKES IT WORK.",
+  
+  projectsHeading: "SELECTED WORKS.",
+  projectsSubheading: "Some ideas deserve to become more than just ideas.",
+  
+  skillsHeading: "TOOLS OF THE CRAFT.",
+  skillsSubheading: "Technology is the medium. Building meaningful experiences is the goal.",
+  skillsStatement: "ALWAYS LEARNING. ALWAYS BUILDING.",
+  proficiencyLevel: "INTERMEDIATE",
+  
+  contactHeading: "LET'S BUILD SOMETHING MEANINGFUL.",
+  contactStatement: "HAVE AN IDEA? LET'S MAKE IT REAL.",
+  availabilityStatement: "OPEN TO INTERESTING PROJECTS, COLLABORATIONS AND OPPORTUNITIES.",
+  
+  footerTagline: "DESIGNED WITH INTENTION. BUILT WITH PURPOSE.",
+  copyrightYear: 2026,
 };
 
-export const SKILLS_DATA = {
-  design: [
-    { name: "Graphic Design", icon: "palette", desc: "Visual storytelling & brand identity" },
-    { name: "UI/UX Design", icon: "layout", desc: "Intuitive workflows & wireframes" },
-    { name: "Typography", icon: "type", desc: "Editorial hierarchy & font pairing" },
-    { name: "Colour Theory", icon: "disc", desc: "Harmonic palettes & emotional resonance" },
-    { name: "Visual Composition", icon: "grid", desc: "Spatial balance & focal dynamics" },
-    { name: "Digital Content", icon: "sparkles", desc: "Modern interactive web assets" },
-    { name: "Figma", icon: "figma", desc: "High-fidelity prototyping & design systems" },
-  ],
-  development: [
-    { name: "HTML5", icon: "html5", desc: "Semantic structural markup" },
-    { name: "CSS3", icon: "css3", desc: "Modern responsive styling & animations" },
-    { name: "JavaScript", icon: "javascript", desc: "ES6+ asynchronous logic" },
-    { name: "React.js", icon: "react", desc: "Component architecture & state flow" },
-    { name: "Next.js", icon: "nextjs", desc: "App router, SSR & performance optimization" },
-    { name: "TypeScript", icon: "typescript", desc: "Type-safe robust web development" },
-    { name: "C", icon: "c", desc: "Systems programming & algorithms" },
-    { name: "Git", icon: "git", desc: "Version control & collaboration" },
-    { name: "GitHub", icon: "github", desc: "Open-source development & workflows" },
-  ],
-};
-
-export const FEATURED_PROJECTS: Project[] = [
+export const PROJECTS_DATA: Project[] = [
   {
     id: "resqlink",
+    number: "01",
     title: "ResQLink",
-    subtitle: "Disaster Management Platform",
+    subtitle: "Disaster Alert & Emergency Response Platform",
     category: "Disaster Management Platform",
     description:
-      "A Kerala-focused disaster alert and emergency response platform designed to connect residents, administrators and rescue operators.",
-    problemStatement:
-      "During severe monsoons and natural disaster crises across Kerala, fragmented emergency communication, inaccurate social media rumors, and delays in emergency dispatch hinder rapid rescue coordination.",
-    proposedSolution:
-      "A unified, high-availability platform uniting citizens, relief administrators, and rescue teams in real time with verified incident reporting, geolocation SOS alerts, and live resource tracking.",
-    features: [
-      "Geo-referenced SOS emergency alert broadcast",
-      "Interactive Kerala disaster zone map with live relief nodes",
-      "Real-time emergency shelter inventory & supply tracker",
-      "Role-based emergency command and dispatch console",
+      "A disaster alert and emergency response platform designed to help residents receive location-relevant warnings and improve coordination during emergencies.",
+    keyConcepts: [
+      "Location-based disaster alerts",
+      "Resident notification system",
+      "Administrative monitoring",
+      "Emergency SOS functionality",
+      "Rescue coordination",
     ],
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Mapbox", "Vercel"],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma",
+      "Tailwind CSS",
+    ],
     liveUrl: "https://resqlink-citizen-portal.vercel.app/",
     githubUrl: "https://github.com/jenitjenson45-debug/_Resqlink-",
     image: "/images/hero-ref.jpg",
@@ -96,55 +100,118 @@ export const FEATURED_PROJECTS: Project[] = [
   },
   {
     id: "resqmesh",
+    number: "02",
     title: "ResQMesh",
-    subtitle: "Responder Identity Platform",
-    category: "Responder Identity Platform",
+    subtitle: "Offline-Verifiable Responder Identity Concept",
+    category: "Emergency Response / Responder Verification",
     description:
-      "A disaster-response project exploring responder identity, verification and trusted digital interactions.",
-    problemStatement:
-      "In chaotic emergency scenarios where cellular connectivity and power grids fail, ensuring first responders are legitimate and authorized without internet access poses a critical security challenge.",
-    proposedSolution:
-      "A decentralized identity validation framework enabling localized offline verification of responder credentials, team roles, and operational clearance.",
-    features: [
-      "Offline cryptographic credential verification",
-      "Decentralized mesh responder registry",
-      "Tamper-proof digital badge authentication",
-      "Emergency squad role assignments & verification logs",
+      "An offline-verifiable responder identity concept designed to support trusted responder credentials and verification workflows.",
+    keyConcepts: [
+      "Offline-verifiable identity framework",
+      "Trusted responder credential verification",
+      "Decentralized responder authentication workflows",
+      "Resilient field validation during communication loss",
     ],
-    technologies: ["React", "TypeScript", "Distributed Mesh", "Cryptography", "Tailwind CSS"],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Offline Verification",
+      "Cryptographic Badges",
+      "Tailwind CSS",
+    ],
     githubUrl: "https://github.com/austinjosephes/ResQMesh-DisasterManagement",
     image: "/images/full-ref.jpg",
     featured: true,
   },
   {
-    id: "personal-portfolio",
-    title: "Personal Portfolio",
-    subtitle: "Creative Developer Portfolio",
-    category: "Creative Developer Portfolio",
+    id: "sentinel-ai",
+    number: "03",
+    title: "Sentinel AI",
+    subtitle: "Cybersecurity Threat-Monitoring Concept",
+    category: "Cybersecurity",
     description:
-      "A personal portfolio showcasing creative design, interactive interfaces, web technologies and visual storytelling.",
-    problemStatement:
-      "Standard portfolio templates fail to reflect the nuance of high-end editorial design, realistic 3D lighting, and smooth interactive physics required by top-tier creative studios.",
-    proposedSolution:
-      "A bespoke luxury digital experience built with Next.js, Three.js metallic physics, GSAP smooth scroll choreography, and champagne-gold aesthetic depth.",
-    features: [
-      "Realistic 3D champagne-gold orbit rings with interactive lighting",
-      "Glassmorphism cards with dynamic 3D perspective tilts",
-      "Lenis smooth scroll choreography & GSAP timeline triggers",
-      "Strict responsive fidelity across desktop, tablet, and mobile",
+      "A cybersecurity threat-monitoring project concept focused on identifying, monitoring and presenting potential security threats.",
+    keyConcepts: [
+      "Threat vector identification & telemetry",
+      "Potential security anomaly surveillance",
+      "Structured threat diagnostics dashboard",
+      "Incident logging and presentation flow",
     ],
-    technologies: ["Next.js", "React", "Three.js", "GSAP", "Lenis", "Tailwind CSS", "TypeScript"],
-    liveUrl: "https://portfolio-jenitjenson45-debug.vercel.app",
+    technologies: [
+      "Python",
+      "React",
+      "Threat Telemetry",
+      "Security Monitoring",
+      "REST APIs",
+    ],
     githubUrl: "https://github.com/jenitjenson45-debug",
     image: "/images/design-ref.jpg",
     featured: true,
   },
 ];
 
-export const CREATIVE_INTERESTS = [
-  { name: "UI/UX Design", desc: "Crafting modern, intuitive interfaces" },
-  { name: "Web Development", desc: "Interactive frontend & scalable web apps" },
-  { name: "Cinematic Visuals", desc: "Atmospheric 3D lighting & motion graphics" },
-  { name: "Branding", desc: "Distinctive identity & typography systems" },
-  { name: "Tech Innovation", desc: "Exploring emerging digital frontiers" },
+export const SKILLS_CATEGORIES: SkillCategory[] = [
+  {
+    categoryTitle: "FRONTEND DEVELOPMENT",
+    categoryTag: "01 / CLIENT ARCHITECTURE",
+    skills: [
+      {
+        name: "HTML",
+        description: "Semantic document structure, accessibility standards, and SEO-friendly markup.",
+        level: "Intermediate",
+      },
+      {
+        name: "CSS",
+        description: "Responsive layouts, Flexbox, Grid, custom properties, and fluid typography.",
+        level: "Intermediate",
+      },
+      {
+        name: "JavaScript",
+        description: "Modern ES6+ syntax, asynchronous event loops, promises, and DOM manipulation.",
+        level: "Intermediate",
+      },
+      {
+        name: "React.js",
+        description: "Component lifecycle, functional architecture, custom hooks, and state management.",
+        level: "Intermediate",
+      },
+      {
+        name: "Next.js",
+        description: "App Router, server and client components, API routes, and optimized rendering.",
+        level: "Intermediate",
+      },
+      {
+        name: "TypeScript",
+        description: "Static typing, interfaces, generic contracts, and scalable codebase reliability.",
+        level: "Intermediate",
+      },
+    ],
+  },
+  {
+    categoryTitle: "PROGRAMMING",
+    categoryTag: "02 / SYSTEMS & LOGIC",
+    skills: [
+      {
+        name: "C",
+        description: "Core computer science fundamentals, memory management, pointers, and data structures.",
+        level: "Intermediate",
+      },
+    ],
+  },
+  {
+    categoryTitle: "DEVELOPMENT TOOLS",
+    categoryTag: "03 / WORKFLOW & VERSIONING",
+    skills: [
+      {
+        name: "Git",
+        description: "Distributed version control, branching strategies, commit history, and staging.",
+        level: "Intermediate",
+      },
+      {
+        name: "GitHub",
+        description: "Remote repository synchronization, code reviews, collaboration, and pull requests.",
+        level: "Intermediate",
+      },
+    ],
+  },
 ];

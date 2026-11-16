@@ -1,17 +1,19 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 
 interface Scroll3DZoomProps {
   children: React.ReactNode;
   className?: string;
   intensity?: number;
+  id?: string;
 }
 
 export function Scroll3DZoomSection({
   children,
   className = "",
-  intensity = 0.085, // Noticeable, luxurious 3D zoom effect (~9-10% scale)
+  intensity = 0.08,
+  id,
 }: Scroll3DZoomProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -26,7 +28,7 @@ export function Scroll3DZoomSection({
       const viewportHeight = window.innerHeight;
 
       // Skip offscreen sections completely to save GPU & CPU cycles
-      if (rect.bottom < -100 || rect.top > viewportHeight + 100) {
+      if (rect.bottom < -150 || rect.top > viewportHeight + 150) {
         return;
       }
 
@@ -40,18 +42,19 @@ export function Scroll3DZoomSection({
       const absNorm = Math.min(1, Math.abs(distFromCenter) / maxDist);
       const focus = Math.max(0, 1 - absNorm);
 
-      // 1. Noticeable 3D Zoom (scales from 0.92 to 1.04)
-      const currentScale = (0.92 + focus * intensity * 1.35).toFixed(4);
+      // 1. Cinematic 3D Zoom (scales from 0.94 up to 1.02)
+      const currentScale = (0.94 + focus * intensity * 1.0).toFixed(4);
 
-      // 2. 3D Z-translation (up to 75px forward in 3D perspective)
-      const currentZ = (focus * 75).toFixed(1);
+      // 2. 3D Z-translation (up to 45px forward in 3D perspective)
+      const currentZ = (focus * 45).toFixed(1);
 
       // 3. Subtle 3D tilt based on scroll direction relative to center
       const tiltDir = distFromCenter > 0 ? -1 : 1;
-      const currentRotateX = ((1 - focus) * tiltDir * 2.8).toFixed(2);
+      const currentRotateX = ((1 - focus) * tiltDir * 1.8).toFixed(2);
 
-      // Direct hardware-accelerated style mutation: ZERO React component re-renders!
-      el.style.transform = `perspective(1000px) translate3d(0, 0, ${currentZ}px) scale(${currentScale}) rotateX(${currentRotateX}deg)`;
+      // Direct hardware-accelerated style mutation
+      el.style.transform = `perspective(1200px) translate3d(0, 0, ${currentZ}px) scale(${currentScale}) rotateX(${currentRotateX}deg)`;
+      el.style.opacity = `${(0.85 + focus * 0.15).toFixed(3)}`;
     };
 
     const handleScroll = () => {
@@ -72,13 +75,14 @@ export function Scroll3DZoomSection({
 
   return (
     <div
+      id={id}
       ref={containerRef}
       className={`relative will-change-transform ${className}`}
       style={{
-        perspective: "1000px",
-        transform: "perspective(1000px) translate3d(0, 0, 0) scale(0.92) rotateX(0deg)",
+        perspective: "1200px",
+        transform: "perspective(1200px) translate3d(0, 0, 0) scale(0.94) rotateX(0deg)",
         transformOrigin: "center center",
-        transition: "transform 0.18s cubic-bezier(0.25, 1, 0.5, 1)",
+        transition: "transform 0.22s cubic-bezier(0.2, 0.9, 0.4, 1), opacity 0.22s ease-out",
         backfaceVisibility: "hidden",
       }}
     >

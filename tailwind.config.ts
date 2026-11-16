@@ -9,71 +9,51 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Master Project Palette
-        restaurant: {
-          bg: "#17110E",          // Primary background
-          surface: "#24201D",     // Secondary background
-          surfaceHover: "#2F2A26",
-          card: "rgba(36, 32, 29, 0.75)",
-          cardGlass: "rgba(23, 17, 14, 0.85)",
-          border: "rgba(217, 154, 67, 0.2)",
-          borderGlow: "rgba(217, 154, 67, 0.45)",
-          light: "#FFF4E5",       // Primary light
-          gold: "#D99A43",        // Golden accent
-          goldLight: "#F0B96D",
-          goldDark: "#A66E22",
-          orange: "#C76B35",      // Burnt orange
-          orangeHover: "#DF7A3D",
-          green: "#6F8D57",       // Fresh green (veg indicator)
-          beige: "#D8C4A8",       // Warm beige
-          muted: "#9D8F82",
-          darkMuted: "#5C534B",
-        },
-        gold: {
-          DEFAULT: "#D99A43",
-          light: "#F0B96D",
-          dark: "#A66E22",
-          glow: "rgba(217, 154, 67, 0.35)",
-          subtle: "rgba(217, 154, 67, 0.12)",
+        // Official Reference 01 Color System
+        jj: {
+          deep: "#051F20",       // Deepest Navy Green (main backgrounds)
+          dark: "#0B2B26",       // Dark Forest Green (secondary backgrounds)
+          forest: "#163832",     // Forest Green (secondary surfaces / cards)
+          emerald: "#235347",    // Emerald Green (accents & borders)
+          sage: "#8EB69B",       // Sage Green (highlights, muted text, details)
+          mint: "#DAF1DE",       // Pale Mint / Ivory (light typography, contrast)
         },
       },
       fontFamily: {
-        serif: ["'Cormorant Garamond'", "'Playfair Display'", "Georgia", "serif"],
-        sans: ["'Plus Jakarta Sans'", "'Inter'", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        serif: [
+          '"Bodoni Moda"',
+          '"Playfair Display"',
+          '"Cormorant Garamond"',
+          "Didot",
+          "Bodoni MT",
+          "Georgia",
+          "serif",
+        ],
+        sans: ['"DM Sans"', '"Inter"', "system-ui", "-apple-system", "sans-serif"],
+        mono: ['"JetBrains Mono"', '"Fira Code"', "monospace"],
       },
       boxShadow: {
-        "gold-glow": "0 0 25px rgba(217, 154, 67, 0.3)",
-        "gold-glow-lg": "0 0 45px rgba(217, 154, 67, 0.4)",
-        "orange-glow": "0 0 30px rgba(199, 107, 53, 0.35)",
-        "card-glass": "0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 244, 229, 0.08)",
-        "soft-inner": "inset 2px 2px 5px rgba(0,0,0,0.5), inset -2px -2px 5px rgba(255,255,255,0.04)",
-        "clay": "8px 8px 16px rgba(10, 7, 6, 0.6), -4px -4px 12px rgba(45, 40, 36, 0.4), inset 1px 1px 1px rgba(255,255,255,0.1)",
+        "emerald-glow": "0 0 30px rgba(35, 83, 71, 0.35)",
+        "emerald-glow-lg": "0 0 60px rgba(35, 83, 71, 0.45)",
+        "sage-glow": "0 0 25px rgba(142, 182, 155, 0.25)",
+        "mint-glow": "0 0 35px rgba(218, 241, 222, 0.2)",
+        "card-glass": "0 20px 50px rgba(5, 31, 32, 0.8), inset 0 1px 0 rgba(218, 241, 222, 0.08)",
       },
       animation: {
-        "float-gentle": "float-gentle 6s ease-in-out infinite",
-        "float-reverse": "float-reverse 7s ease-in-out infinite",
-        "spin-slow": "spin-slow 28s linear infinite",
-        "pulse-gold": "pulse-gold 3s ease-in-out infinite",
-        "shimmer": "shimmer 2.5s linear infinite",
+        "float-gentle": "float-gentle 7s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 4s ease-in-out infinite",
+        "shimmer-sage": "shimmer-sage 3s linear infinite",
       },
       keyframes: {
         "float-gentle": {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-10px)" },
+          "50%": { transform: "translateY(-12px)" },
         },
-        "float-reverse": {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(10px)" },
+        "pulse-glow": {
+          "0%, 100%": { opacity: "0.4", transform: "scale(1)" },
+          "50%": { opacity: "0.85", transform: "scale(1.04)" },
         },
-        "spin-slow": {
-          "0%": { transform: "rotate(0deg)" },
-          "100%": { transform: "rotate(360deg)" },
-        },
-        "pulse-gold": {
-          "0%, 100%": { opacity: "0.5", transform: "scale(1)" },
-          "50%": { opacity: "1", transform: "scale(1.05)" },
-        },
-        shimmer: {
+        "shimmer-sage": {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
         },
