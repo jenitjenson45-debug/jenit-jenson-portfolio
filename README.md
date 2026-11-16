@@ -2,7 +2,9 @@
 ### High-Contrast Editorial Luxury, Soft Neomorphism & Tactile Skeuomorphism
 **Kerala, India**
 
-🌐 **Live Vercel Production Site**: [https://jenit-jenson-portfolio-beryl.vercel.app](https://jenit-jenson-portfolio-beryl.vercel.app)
+* 🌐 **Live GitHub Pages**: [https://jenitjenson45-debug.github.io/jenit-jenson-portfolio/](https://jenitjenson45-debug.github.io/jenit-jenson-portfolio/)
+* 🌐 **Live Vercel Production**: [https://jenit-jenson-portfolio-beryl.vercel.app](https://jenit-jenson-portfolio-beryl.vercel.app)
+* 🐙 **GitHub Repository**: [https://github.com/jenitjenson45-debug/jenit-jenson-portfolio](https://github.com/jenitjenson45-debug/jenit-jenson-portfolio)
 
 A production-grade, single-file luxury portfolio website designed for **Jenit Jenson (UI Designer)**. Self-contained inside [`index.html`](file:///d:/PORTFOLIO/index.html), combining editorial typography, 3D Three.js scene physics, and curated UI design showcases spanning **Skeuomorphism**, **Neomorphism**, and **Glassmorphism**.
 
