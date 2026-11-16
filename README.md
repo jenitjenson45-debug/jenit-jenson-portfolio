@@ -2,6 +2,7 @@
 ### High-Contrast Editorial Luxury, Soft Neomorphism & Tactile Skeuomorphism
 **Kerala, India**
 
+* 🌐 **Live Portfolio (Short Link)**: [https://tinyurl.com/jenit-jenson](https://tinyurl.com/jenit-jenson)
 * 🌐 **Live GitHub Pages**: [https://jenitjenson45-debug.github.io/jenit-jenson-portfolio/](https://jenitjenson45-debug.github.io/jenit-jenson-portfolio/)
 * 🌐 **Live Vercel Production**: [https://jenit-jenson-portfolio-beryl.vercel.app](https://jenit-jenson-portfolio-beryl.vercel.app)
 * 🐙 **GitHub Repository**: [https://github.com/jenitjenson45-debug/jenit-jenson-portfolio](https://github.com/jenitjenson45-debug/jenit-jenson-portfolio)
